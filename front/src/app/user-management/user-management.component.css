@@ -1,0 +1,65 @@
+.gestion-usuarios-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f7f7f7;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  h2 {
+    text-align: center;
+    color: #333;
+    font-weight: 400;
+  }
+  
+  .usuarios-tabla {
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  .mat-header-cell, .mat-cell {
+    text-align: center;
+  }
+  
+  button {
+    margin: 0 5px;
+    font-weight: bold; /* Aumenta el peso de la fuente */
+    padding: 10px 15px; /* Aumenta el padding */
+    border-radius: 4px; /* Añade bordes redondeados */
+  }
+  
+  button.mat-warn {
+    background-color: #ff3d00; /* Cambia el fondo de eliminar */
+    color: #fff;
+  }
+  
+  button.mat-primary {
+    background-color: #2196f3; /* Cambia el fondo de ver */
+    color: #fff;
+  }
+  
+  button.mat-accent {
+    background-color: #4caf50; /* Cambia el fondo de editar */
+    color: #fff;
+  }
+  
+  button:hover {
+    opacity: 0.8; /* Añade un efecto de opacidad al pasar el mouse */
+  }
+  
+  
+  .btn-gestion-usuarios {
+    background-color: transparent;
+    color: black;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .btn-gestion-usuarios:hover {
+    text-decoration: underline;
+  }
+
+
+  

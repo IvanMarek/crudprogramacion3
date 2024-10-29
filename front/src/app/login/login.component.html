@@ -1,0 +1,24 @@
+<div class="login-container">
+  <div class="login-left">
+    <div class="card">
+      <h2>Iniciar Sesión</h2>
+      <form (ngSubmit)="inicioSesion()">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="string" id="email" [(ngModel)]="email" name="email" required />
+        </div>
+        <div class="form-group">
+          <label for="password">Contrasena</label>
+          <input type="password" id="password" [(ngModel)]="contrasena" name="password" required />
+        </div>
+        <button type="submit" class="btn btn-login">Iniciar Sesion</button>
+        <button (click)="navegar()" class="btn btn-login">Registrarse</button>
+      </form>
+    </div>
+  </div>
+  <div class="login-right">
+    <div class="image-container">
+      <img src="assets/fondo-login2.png">
+    </div>
+  </div>
+</div>

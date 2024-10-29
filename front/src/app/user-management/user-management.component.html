@@ -1,0 +1,43 @@
+<h2>Gestión de Usuarios</h2>
+<div class="gestion-usuarios-container">
+  <table mat-table [dataSource]="usuarios" class="mat-elevation-z8 usuarios-tabla" *ngIf="usuarios.length > 0">
+    <!-- Columna de Nombre -->
+    <ng-container matColumnDef="nombre">
+      <th mat-header-cell *matHeaderCellDef> Nombre </th>
+      <td mat-cell *matCellDef="let usuario"> {{ usuario.nombreUsuario }} </td>
+    </ng-container>
+
+    <!-- Columna de Email -->
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef> Email </th>
+      <td mat-cell *matCellDef="let usuario"> {{ usuario.email }} </td>
+    </ng-container>
+
+    <!-- Columna de Estado -->
+    <ng-container matColumnDef="estado">
+      <th mat-header-cell *matHeaderCellDef> Estado </th>
+      <td mat-cell *matCellDef="let usuario"> {{ usuario.eliminado ? 'Inactivo' : 'Activo' }} </td>
+    </ng-container>
+
+    <!-- Columna de Acciones -->
+    <ng-container matColumnDef="acciones">
+      <th mat-header-cell *matHeaderCellDef> Acciones </th>
+      <td mat-cell *matCellDef="let usuario">
+        <button mat-button color="primary" (click)="verPerfil(usuario)">
+          <span class="material-icons">visibility</span> Ver
+        </button>
+        <button mat-button color="accent" (click)="editarUsuario(usuario)">
+          <span class="material-icons">edit</span> Editar
+        </button>
+        <button mat-button color="warn" (click)="cambiarEstadoUsuario(usuario)">
+          <span class="material-icons">delete</span> {{ usuario.eliminado ? 'Activar' : 'Desactivar' }}
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <p *ngIf="usuarios.length === 0">No hay usuarios registrados para mostrar.</p>
+</div>

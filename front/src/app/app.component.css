@@ -1,0 +1,20 @@
+*{
+  font-family: sans-serif;
+}
+
+
+.app-container {
+    display: flex; /* Para alinear la navbar y el contenido horizontalmente */
+  }
+  
+  .barra-navegacion {
+    width: 200px; /* Ancho de la barra de navegación */
+    height: 100%; /* Ocupa toda la altura */
+  }
+  
+  .content {
+    flex: 1; /* Ocupa el espacio restante */
+    padding: 20px; /* Agrega un poco de espaciado alrededor */
+    margin-left: 200px; /* Deja espacio para la barra de navegación */
+  }
+  

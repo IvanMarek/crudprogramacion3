@@ -1,0 +1,58 @@
+<nav class="navbar">
+    <div class="navbar-logo" (click)="irALogin()">
+      <img src="assets/casa.png" alt="Logo" class="logo" />
+    </div>
+    <div class="navbar-links">
+      <button (click)="irAPerfil()" class="btn-perfil">Perfil</button>
+      <button (click)="cerrarSesion()" class="btn-cerrar-sesion">Cerrar Sesión</button>
+    </div>
+  </nav>
+
+<div class="perfil-container">
+    <h2 *ngIf="isEditing">Editar Perfil</h2>
+    <h2 *ngIf="!isEditing">Mi Perfil</h2>
+
+    <!-- Contenedor de la previsualización de la foto de perfil -->
+    <div class="foto-container" *ngIf="fotoPreview">
+        <img [src]="fotoPreview" alt="Foto de perfil" class="foto-preview" />
+    </div>
+
+    <form *ngIf="isEditing" (ngSubmit)="crearPerfil()">
+        <!-- Campo para el nombre -->
+        <div>
+          <label for="nombre">Nombre:</label>
+          <input type="text" id="nombre" [(ngModel)]="usuario.nombre" name="nombre" required />
+        </div>
+      
+        <!-- Campo para el apellido -->
+        <div>
+          <label for="apellido">Apellido:</label>
+          <input type="text" id="apellido" [(ngModel)]="usuario.apellido" name="apellido" required />
+        </div>
+      
+        <!-- Campo para la biografía -->
+        <div>
+          <label for="biografia">Biografía:</label>
+          <textarea id="biografia" [(ngModel)]="usuario.biografia" name="biografia" rows="3"></textarea>
+        </div>
+      
+        <!-- Selección de foto de perfil -->
+        <div>
+          <label for="foto">Foto de perfil:</label>
+          <input type="file" id="foto" (change)="onFileSelected($event)" />
+        </div>
+      
+        <!-- Botón para guardar -->
+        <button type="submit">Guardar Cambios</button>
+      </form>
+      
+
+    <!-- Muestra la información del usuario si no está en modo edición -->
+    <div *ngIf="!isEditing" class="perfil-info">
+        <h3>Nombre: {{ usuario.nombre }}</h3>
+        <h3>Apellido: {{ usuario.apellido }}</h3>
+        <h3>Biografía: {{ usuario.biografia }}</h3>
+        <!-- Botón para volver a editar -->
+        <button (click)="onEdit()">Editar</button>
+    </div>
+</div>

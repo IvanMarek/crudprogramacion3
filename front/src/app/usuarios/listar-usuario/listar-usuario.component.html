@@ -1,0 +1,38 @@
+<div class="app-container">
+  <div class="content">
+    <div class="users-container">
+      <h2>Lista de Usuarios</h2>
+      
+      <!-- Opciones de filtro -->
+      <div class="filter-options">
+        <label for="user-filter">Mostrar: </label>
+        <select id="user-filter" (change)="filtrarUsuarios($event)">
+          <option value="todos">Todos</option>
+          <option value="activos">Activos</option>
+        </select>
+      </div>
+      
+      <table>
+        <thead>
+          <tr>
+            <th>Nombre de Usuario</th>
+            <th>Rol</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let usuario of usuariosFiltrados">
+            <td>{{ usuario.nombreUsuario }}</td>
+            <td>{{ usuario.rol }}</td>
+            <td>{{ usuario.eliminado }}</td>
+            <td>
+              <a class="btn-edit" [routerLink]="['/usuario/editar', usuario.usuarioId]">✏️</a>
+              <button class="btn-delete" (click)="eliminarUsuario(usuario)">🗑️</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

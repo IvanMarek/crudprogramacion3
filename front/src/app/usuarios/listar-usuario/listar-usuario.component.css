@@ -1,0 +1,72 @@
+/* src/app/users/users.component.css */
+.app-container {
+    display: flex;
+    height: 100vh;
+  }
+  
+  .barra-navegacion {
+    width: 200px; /* Ancho de la barra de navegación */
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%; /* Para que ocupe toda la altura de la pantalla */
+  }
+  
+  .content {
+    margin-left: 200px; /* Deja espacio para la barra de navegación */
+    padding: 20px;
+    width: calc(100% - 200px);
+    box-sizing: border-box;
+  }
+  
+  .users-container {
+    margin: 20px auto;
+    width: 100%;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  table th, table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+  }
+  
+  table th {
+    background-color: #007acc;
+    color: white;
+  }
+  
+  button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    padding: 5px;
+  }
+  
+  button:hover {
+    opacity: 0.7;
+  }
+  
+  .btn-edit {
+    color: #007acc; /* Azul para editar */
+  }
+  
+  .btn-delete {
+    color: red; /* Rojo para eliminar */
+  }
+
+  .filter-options select {
+    width: 10%;
+    height: 2rem;
+    font-size: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  .filter-options{
+    margin-bottom: 1em;
+  }

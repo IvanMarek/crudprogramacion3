@@ -1,0 +1,60 @@
+<div class="app-container">
+  <div class="content">
+    <div class="create-user-container">
+      <div class="card">
+        <h2>Crear Usuario</h2>
+        <p>Por favor ingrese los datos del nuevo usuario</p>
+        
+        <form (ngSubmit)="crearUsuario()" #formularioUsuario="ngForm">
+          <!-- Nombre de Usuario -->
+          <div class="form-group">
+            <label for="nombreUsuario">Nombre de Usuario</label>
+            <input type="text" id="nombreUsuario" [(ngModel)]="nombreUsuario" name="nombreUsuario" required #nombreUsuarioModel="ngModel" />
+            <!-- Mensaje de error para el nombre de usuario -->
+            <div *ngIf="nombreUsuarioModel.invalid && nombreUsuarioModel.touched" class="error-message">
+              El nombre de usuario es obligatorio.
+            </div>
+          </div>
+
+          <!-- Contraseña -->
+          <div class="form-group">
+            <label for="contrasena">Contraseña</label>
+            <input type="password" id="contrasena" [(ngModel)]="contrasena" name="contrasena" required minlength="6" #contrasenaModel="ngModel" />
+            <!-- Mensaje de error para la contraseña -->
+            <div *ngIf="contrasenaModel.invalid && contrasenaModel.touched" class="error-message">
+              <div *ngIf="contrasenaModel.errors?.['required']">La contraseña es obligatoria.</div>
+              <div *ngIf="contrasenaModel.errors?.['minlength']">La contraseña debe tener al menos 6 caracteres.</div>
+            </div>
+          </div>
+
+          <!-- Rol -->
+          <div class="form-group">
+            <label for="rol">Rol</label>
+            <select id="rol" [(ngModel)]="rol" name="rol" required #rolModel="ngModel">
+              <option value="" disabled selected>Seleccione un rol</option>
+              <option value="Administrador">Administrador</option>
+              <option value="Administrativo">Administrativo</option>
+            </select>
+            <!-- Mensaje de error para el rol -->
+            <div *ngIf="rolModel.invalid && rolModel.touched" class="error-message">
+              El rol es obligatorio.
+            </div>
+          </div>
+
+          <!-- Botón para crear usuario -->
+          <button type="submit" class="btn-crear-usuario" [disabled]="formularioUsuario.invalid">Crear Usuario</button>
+        </form>
+
+        <!-- Mensaje de éxito -->
+        <div *ngIf="mensajeExito" class="alert alert-success" style="margin-top: 20px;">
+          {{ mensajeExito }}
+        </div>
+
+        <!-- Mensaje de error general -->
+        <div *ngIf="mensajeError" class="alert alert-danger" style="margin-top: 20px;">
+          {{ mensajeError }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

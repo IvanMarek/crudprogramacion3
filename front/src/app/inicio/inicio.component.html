@@ -1,0 +1,46 @@
+<nav class="navbar">
+  <div class="navbar-logo" (click)="irALogin()">
+    <img src="assets/casa.png" alt="Logo" class="logo" />
+  </div>
+  <div class="navbar-links">
+    <button (click)="irAPerfil()" class="btn-perfil">Perfil</button>
+    <button (click)="irAGestionUsuarios()" class="btn-gestion-usuarios">Gestionar Usuarios</button>
+    <button (click)="cerrarSesion()" class="btn-cerrar-sesion">Cerrar Sesión</button>
+  </div>
+</nav>
+
+<div class="inicio-container">
+    <!-- Sección de Publicación de Contenido -->
+    <div class="publicar-container">
+      <h2>Crear una nueva publicación</h2>
+      <form (ngSubmit)="crearPublicacion()" enctype="multipart/form-data">
+        <textarea [(ngModel)]="nuevaPublicacion" name="publicacion" rows="4" placeholder="Escribe algo..." required></textarea>
+        <input type="file" (change)="onFileSelected($event)" accept="image/*" />
+        <div *ngIf="imagenPublicacion" class="preview-container">
+          <img [src]="imagenPublicacion" alt="Previsualización de la imagen" class="imagen-previa" />
+        </div>
+        <button type="submit" class="btn-publicar">Publicar</button>
+      </form>
+      <p *ngIf="mensaje">{{ mensaje }}</p>
+    </div>
+  
+    <!-- Sección de Feed -->
+    <div class="feed-container">
+      <h2>Feed de Publicaciones</h2>
+      <div *ngFor="let publicacion of publicaciones" class="publicacion-item">
+        <p><strong>{{ publicacion.autor }}:</strong> {{ publicacion.contenido }}</p>
+        <img *ngIf="publicacion.imagen" [src]="publicacion.imagen" alt="Imagen de publicación" class="imagen-publicacion" />
+      </div>
+    </div>
+  
+    <!-- Sección de Seguir/Dejar de Seguir Usuarios -->
+    <div class="seguir-container">
+      <h2>Usuarios Recomendados</h2>
+      <div *ngFor="let usuario of usuariosRecomendados" class="usuario-item">
+        <p>{{ usuario.nombreUsuario }}</p>
+        <button *ngIf="!usuario.seguido" (click)="seguirUsuario(usuario)" class="btn-seguir">Seguir</button>
+        <button *ngIf="usuario.seguido" (click)="dejarDeSeguirUsuario(usuario)" class="btn-dejar-seguir">Dejar de seguir</button>
+      </div>
+    </div>
+  </div>
+  

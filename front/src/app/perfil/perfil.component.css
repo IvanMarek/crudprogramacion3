@@ -1,0 +1,96 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  scrollbar-gutter: initial;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  align-items: center;
+  padding: 10px;
+  background-color: #8f8f8f;
+  color: rgb(0, 0, 0);
+}
+
+.navbar-logo {
+  cursor: pointer;
+}
+
+.logo {
+  height: 40px; /* Ajusta la altura del logo */
+}
+
+.navbar-links {
+  display: flex;
+  gap: 15px;
+  color: black;
+}
+
+.btn-perfil,
+.btn-cerrar-sesion {
+  background-color: transparent;
+  color: black;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+.perfil-container {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.perfil-container h2 {
+  text-align: center;
+}
+
+.foto-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.foto-preview {
+  width: 100px; /* Tamaño más pequeño para la previsualización */
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%; /* Mantener el formato circular */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.perfil-container div {
+  margin-bottom: 15px;
+}
+
+.perfil-container label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.perfil-container input[type="text"],
+.perfil-container textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:hover {
+  background-color: #218838;
+}
