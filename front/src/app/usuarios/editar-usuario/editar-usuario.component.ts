@@ -4,7 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
-import { UsuarioService } from '../service/usuario.service';
+import { UsuarioService } from '../service/usuario.service1';
 
 @Component({
   selector: 'app-editar-usuario',

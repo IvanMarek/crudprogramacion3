@@ -1,0 +1,23 @@
+<h2 mat-dialog-title>Editar Usuario</h2>
+<mat-dialog-content>
+  <form (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="fill">
+      <mat-label>Nombre de Usuario</mat-label>
+      <input matInput [(ngModel)]="usuario.nombreUsuario" name="nombreUsuario" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Email</mat-label>
+      <input matInput [(ngModel)]="usuario.email" name="email" required type="email">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Rol</mat-label>
+      <input matInput [(ngModel)]="usuario.rol" name="rol" required>
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button type="submit" (click)="onSubmit()">Guardar</button>
+  <button mat-button (click)="onCancel()">Cancelar</button>
+</mat-dialog-actions>

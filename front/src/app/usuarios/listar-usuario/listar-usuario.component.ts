@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
-import { UsuarioService } from '../service/usuario.service';
+import { UsuarioService } from '../service/usuario.service1';
 import { Usuario } from '../models/usuario.models';
 
 @Component({

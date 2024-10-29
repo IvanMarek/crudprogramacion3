@@ -1,9 +1,10 @@
-import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
+import { HttpException, HttpStatus, Injectable,  NotFoundException  } from '@nestjs/common';
 import { CreateUsuarioDto } from './dto/create-usuario.dto';
 import { UpdateUsuarioDto } from './dto/update-usuario.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Usuario } from './entities/usuario.entity';
 import { Repository } from 'typeorm';
+
 
 @Injectable()
 export class UsuariosService {
@@ -33,14 +34,13 @@ export class UsuariosService {
 
   async update(id: number, updateUsuarioDto: UpdateUsuarioDto): Promise<Usuario> {
     const usuario = await this.usuarioRepository.findOneBy({ usuarioId: id });
-
     if (!usuario) {
-      throw new HttpException('Usuario no encontrado', HttpStatus.NOT_FOUND);
+        throw new NotFoundException(`Usuario con ID ${id} no encontrado`);
     }
-
-    Object.assign(usuario, updateUsuarioDto);
+    Object.assign(usuario, updateUsuarioDto); // Asigna los valores del DTO al usuario existente
     return this.usuarioRepository.save(usuario);
-  }
+}
+
 
   async remove(id: number): Promise<void> {
     const usuario = await this.usuarioRepository.findOneBy({ usuarioId: id });

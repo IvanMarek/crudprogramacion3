@@ -2,8 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Usuario } from '../usuarios/models/usuario.models';
 import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
-import { UsuarioService } from '../usuarios/service/usuario.service';
+import { UsuarioService } from '../usuarios/service/usuario.service1';
 import { CommonModule } from '@angular/common';
+import { MatDialog } from '@angular/material/dialog';
+import { EditUserModalComponent } from '../edit-user-modal/edit-user-modal.component';
 
 
 @Component({
@@ -18,7 +20,7 @@ export class GestionUsuariosComponent implements OnInit {
   displayedColumns: string[] = ['nombre', 'email', 'estado', 'acciones']; // Define las columnas aquí
   cargando: boolean = false;
 
-  constructor(private usuarioService: UsuarioService) {}
+  constructor(private usuarioService: UsuarioService,  private dialog: MatDialog) {}
 
 
   ngOnInit(): void {
@@ -75,6 +77,16 @@ export class GestionUsuariosComponent implements OnInit {
     });
   }
   
+  editarUsuario(usuario: Usuario): void {
+    const dialogRef = this.dialog.open(EditUserModalComponent, {
+      data: usuario, // Envía los datos del usuario al modal
+    });
+  
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.cargarUsuarios(); // Recargar la lista de usuarios después de editar
+      }
+    });}
   
 
 
@@ -82,10 +94,4 @@ export class GestionUsuariosComponent implements OnInit {
     console.log('Visualizar perfil de usuario:', usuario);
     // Implementa navegación o lógica de visualización aquí
   }
-
-  editarUsuario(usuario: Usuario): void {
-    console.log('Editar usuario:', usuario);
-    // Implementa la lógica de edición de usuario aquí
-  }
-
 }
